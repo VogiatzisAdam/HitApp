@@ -144,12 +144,30 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106301109432_InitialMigration.cs" />
+    <Compile Include="Migrations\202106301109432_InitialMigration.designer.cs">
+      <DependentUpon>202106301109432_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106301207588_PutFirstDataAnnotations.cs" />
+    <Compile Include="Migrations\202106301207588_PutFirstDataAnnotations.designer.cs">
+      <DependentUpon>202106301207588_PutFirstDataAnnotations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106301222347_PopulateCountryAndKindsOfSupplier.cs" />
+    <Compile Include="Migrations\202106301222347_PopulateCountryAndKindsOfSupplier.designer.cs">
+      <DependentUpon>202106301222347_PopulateCountryAndKindsOfSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Country.cs" />
-    <Compile Include="Models\KindOfSupplier.cs" />
+    <Compile Include="Models\KindsOfSupplier.cs" />
     <Compile Include="Models\Supplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Database1.mdf" />
+    <Content Include="App_Data\Database1_log.ldf">
+      <DependentUpon>Database1.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -188,7 +206,15 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <EmbeddedResource Include="Migrations\202106301109432_InitialMigration.resx">
+      <DependentUpon>202106301109432_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106301207588_PutFirstDataAnnotations.resx">
+      <DependentUpon>202106301207588_PutFirstDataAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106301222347_PopulateCountryAndKindsOfSupplier.resx">
+      <DependentUpon>202106301222347_PopulateCountryAndKindsOfSupplier.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
