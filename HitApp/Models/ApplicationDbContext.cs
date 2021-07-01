@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -14,5 +15,26 @@ namespace HitApp.Models
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<Country> Countries  { get; set; }
         public DbSet<KindsOfSupplier> KindsOfSuppliers  { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+
+        {
+
+            base.OnModelCreating(modelBuilder);
+
+
+            modelBuilder.Entity<Country>()
+
+                .Property(c=>c.CountryId)
+
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+
+            modelBuilder.Entity<KindsOfSupplier>()
+
+                            .Property(k=>k.KindsOfSupplierId)
+
+                            .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+
+        }
     }
 }

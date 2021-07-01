@@ -141,6 +141,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -156,12 +157,41 @@
     <Compile Include="Migrations\202106301222347_PopulateCountryAndKindsOfSupplier.designer.cs">
       <DependentUpon>202106301222347_PopulateCountryAndKindsOfSupplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106301614479_Test.cs" />
+    <Compile Include="Migrations\202106301614479_Test.designer.cs">
+      <DependentUpon>202106301614479_Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106301833444_TestLookUp.cs" />
+    <Compile Include="Migrations\202106301833444_TestLookUp.designer.cs">
+      <DependentUpon>202106301833444_TestLookUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106301905500_AnotherTest.cs" />
+    <Compile Include="Migrations\202106301905500_AnotherTest.designer.cs">
+      <DependentUpon>202106301905500_AnotherTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107010926246_TestAgainLookup.cs" />
+    <Compile Include="Migrations\202107010926246_TestAgainLookup.designer.cs">
+      <DependentUpon>202107010926246_TestAgainLookup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107011111225_TestAgainLookupAndAgain.cs" />
+    <Compile Include="Migrations\202107011111225_TestAgainLookupAndAgain.designer.cs">
+      <DependentUpon>202107011111225_TestAgainLookupAndAgain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107011136280_TestAgainLookupAndAgainandAgain.cs" />
+    <Compile Include="Migrations\202107011136280_TestAgainLookupAndAgainandAgain.designer.cs">
+      <DependentUpon>202107011136280_TestAgainLookupAndAgainandAgain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107011213233_TestAgainLookupAndAgainandAgainAgain.cs" />
+    <Compile Include="Migrations\202107011213233_TestAgainLookupAndAgainandAgainAgain.designer.cs">
+      <DependentUpon>202107011213233_TestAgainLookupAndAgainandAgainAgain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\KindsOfSupplier.cs" />
     <Compile Include="Models\Supplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\SupplierFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Database1.mdf" />
@@ -204,6 +234,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Supplier\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202106301109432_InitialMigration.resx">
@@ -214,6 +245,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106301222347_PopulateCountryAndKindsOfSupplier.resx">
       <DependentUpon>202106301222347_PopulateCountryAndKindsOfSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106301614479_Test.resx">
+      <DependentUpon>202106301614479_Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106301833444_TestLookUp.resx">
+      <DependentUpon>202106301833444_TestLookUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106301905500_AnotherTest.resx">
+      <DependentUpon>202106301905500_AnotherTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107010926246_TestAgainLookup.resx">
+      <DependentUpon>202107010926246_TestAgainLookup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107011111225_TestAgainLookupAndAgain.resx">
+      <DependentUpon>202107011111225_TestAgainLookupAndAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107011136280_TestAgainLookupAndAgainandAgain.resx">
+      <DependentUpon>202107011136280_TestAgainLookupAndAgainandAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107011213233_TestAgainLookupAndAgainandAgainAgain.resx">
+      <DependentUpon>202107011213233_TestAgainLookupAndAgainandAgainAgain.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -229,6 +281,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
