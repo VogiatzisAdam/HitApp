@@ -9,30 +9,37 @@
     <div class="form-group">
         @Html.LabelFor(n => n.Name)
         @Html.TextBoxFor(n => n.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n=>n.Name)
     </div>
     <div class="form-group">
         @Html.LabelFor(k => k.KindsOfSupplierId)
         @Html.DropDownListFor(k => k.KindsOfSupplierId, new SelectList(Model.KindsOfSuppliers, "KindsOfSupplierId", "Heading"), "---Select---", new { @class = "form-control" })
+        @Html.ValidationMessageFor(k=>k.KindsOfSupplierId)
     </div>
     <div class="form-group">
         @Html.LabelFor(t => t.TIN)
         @Html.TextBoxFor(t => t.TIN, new { @class = "form-control" })
+        @Html.ValidationMessageFor(t=>t.TIN)
     </div>
     <div class="form-group">
         @Html.LabelFor(a => a.Address)
         @Html.TextBoxFor(a => a.Address, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a=>a.Address)
     </div>
     <div class="form-group">
         @Html.LabelFor(p => p.PhoneNumber)
         @Html.TextBoxFor(p => p.PhoneNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p=>p.PhoneNumber)
     </div>
     <div class="form-group">
         @Html.LabelFor(e => e.Email)
         @Html.TextBoxFor(e => e.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(e=>e.Email)
     </div>
     <div class="form-group">
         @Html.LabelFor(c => c.CountryId)
-        @Html.DropDownListFor(c => c.CountryId, new SelectList(Model.Countries,"CountryId", "Name"), "---Select---", new { @class = "form-control" })
+        @Html.DropDownListFor(c => c.CountryId, new SelectList(Model.Countries, "CountryId", "Name"), "---Select---", new { @class = "form-control" })
+        @Html.ValidationMessageFor(c=>c.CountryId)
     </div>
     <button type="submit" class="btn btn-primary">Save</button>
 }

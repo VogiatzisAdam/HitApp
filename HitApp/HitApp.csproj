@@ -185,6 +185,10 @@
     <Compile Include="Migrations\202107011213233_TestAgainLookupAndAgainandAgainAgain.designer.cs">
       <DependentUpon>202107011213233_TestAgainLookupAndAgainandAgainAgain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107011904167_TestAnnotations.cs" />
+    <Compile Include="Migrations\202107011904167_TestAnnotations.designer.cs">
+      <DependentUpon>202107011904167_TestAnnotations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Country.cs" />
@@ -192,6 +196,8 @@
     <Compile Include="Models\Supplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\SupplierFormViewModel.cs" />
+    <Compile Include="ViewModels\PhoneValidation.cs" />
+    <Compile Include="ViewModels\TinValidation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Database1.mdf" />
@@ -266,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107011213233_TestAgainLookupAndAgainandAgainAgain.resx">
       <DependentUpon>202107011213233_TestAgainLookupAndAgainandAgainAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107011904167_TestAnnotations.resx">
+      <DependentUpon>202107011904167_TestAnnotations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -10,7 +10,7 @@ namespace HitApp.Controllers
 {
     public class SupplierController : Controller
     {
-        private ApplicationDbContext context;
+        private readonly ApplicationDbContext context;
 
         public SupplierController()
         {
@@ -36,6 +36,14 @@ namespace HitApp.Controllers
         [HttpPost]
         public ActionResult Create(SupplierFormViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                viewModel.Countries = context.Countries.ToList();
+                viewModel.KindsOfSuppliers = context.KindsOfSuppliers.ToList();
+
+                return View("Create", viewModel);
+            }
+                
 
             var supplier = new Supplier
             {
