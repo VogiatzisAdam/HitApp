@@ -5,7 +5,7 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
+    padding-left: 450px;
     padding-right: 15px;
 }
 
@@ -21,4 +21,46 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+span.field-validation-error {
+    color: red;
+    font-weight: bold;
+}
+
+/*Bootstrap Overrides*/
+
+.navbar-inverse {
+    background-color: #7d7777;
+    border-color: #7d7777;
+}
+.navbar-inverse .navbar-brand {
+    color: #f6f1f1;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #f6f1f1;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-control {
+    font-size: 17px;
+    height: 40px;
+    border-radius: 9px;
+}
+.btn {
+    font-size: 17px;
+    padding: 7px 20px;
+    border-radius: 9px;
+}
+.form-control:focus {
+    box-shadow: none;
+}
+h2, .h2 {
+    font-size: 40px;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
