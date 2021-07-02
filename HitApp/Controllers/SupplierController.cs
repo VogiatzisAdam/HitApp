@@ -34,6 +34,7 @@ namespace HitApp.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(SupplierFormViewModel viewModel)
         {
             if (!ModelState.IsValid)

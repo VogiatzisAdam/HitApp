@@ -6,6 +6,7 @@
 <h2>Add a Supplier</h2>
 @using (Html.BeginForm("Create", "Supplier"))
 {
+    @Html.AntiForgeryToken()
     <div class="form-group">
         @Html.LabelFor(n => n.Name)
         @Html.TextBoxFor(n => n.Name, new { @class = "form-control" })
