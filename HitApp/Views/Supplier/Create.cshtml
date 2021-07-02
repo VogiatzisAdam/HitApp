@@ -42,7 +42,7 @@
         @Html.DropDownListFor(c => c.CountryId, new SelectList(Model.Countries, "CountryId", "Name"), "---Select---", new { @class = "form-control" })
         @Html.ValidationMessageFor(c=>c.CountryId)
     </div>
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button id="save" type="submit" class="btn btn-primary">Save</button>
 }
 
 @section scripts

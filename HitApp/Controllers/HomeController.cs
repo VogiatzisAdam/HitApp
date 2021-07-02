@@ -1,5 +1,7 @@
-﻿using System;
+﻿using HitApp.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -8,9 +10,19 @@ namespace HitApp.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext context;
+        public HomeController()
+        {
+            context = new ApplicationDbContext();
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var suppliers = context.Suppliers
+                .Include(k => k.KindOfSupplier)
+                .Include(c => c.Country);
+
+            return View(suppliers);
         }
 
         public ActionResult About()
