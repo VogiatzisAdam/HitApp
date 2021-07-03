@@ -3,12 +3,7 @@
     ViewBag.Title = "Home Page";
 }
 
-@*<ul>
-    @foreach (var supplier in Model)
-            {
-                <li>@supplier.Name - @supplier.KindOfSupplier.Heading</li>
-            }
-</ul>*@
+<h3><span>Suppliers</span></h3>
 
 <table class="table">
     <thead>
@@ -36,7 +31,7 @@
                 <td>@Html.DisplayFor(e=>supplier.Email)</td>
                 <td>@Html.DisplayFor(c=>supplier.Country.Name)</td>
                 <td>
-                    @Html.ActionLink("Edit","Home",new { id=supplier.SupplierId}, new { @class="btn btn-primary"})
+                    @Html.ActionLink("Edit","Edit","Supplier",new { id=supplier.SupplierId}, new { @class="btn btn-primary"})
                     @Html.ActionLink("Delete","Home", new { id = supplier.SupplierId }, new { @class="btn btn-danger"})
                 </td>
             </tr>

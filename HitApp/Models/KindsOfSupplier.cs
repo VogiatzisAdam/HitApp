@@ -12,6 +12,7 @@ namespace HitApp.Models
 
         [Required]
         [StringLength(100,ErrorMessage ="More than 100 characters",MinimumLength =2)]
+        [Display(Name ="Suppliers Role")]
         public string Heading { get; set; }
     }
 }

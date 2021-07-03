@@ -1,22 +1,28 @@
-﻿using HitApp.Models;
+﻿using HitApp.Controllers;
+using HitApp.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
+using System.Web.Mvc;
 
 namespace HitApp.ViewModels
 {
     public class SupplierFormViewModel
     {
+        public int Id { get; set; }
+        public string Heading { get; set; }
+
         [Required]
         [StringLength(80, MinimumLength = 3, ErrorMessage = "Name must be 3-80 characters")]
         public string Name { get; set; }
 
         [Required]
-        [Display(Name = "Kinds Of Supplier")]
         public int KindsOfSupplierId { get; set; }
 
+        [Display(Name ="Suppliers Role")]
         public IEnumerable< KindsOfSupplier> KindsOfSuppliers { get; set; }
 
         [Required]
@@ -35,10 +41,25 @@ namespace HitApp.ViewModels
         public string Email { get; set; }
 
         [Required]
-        [Display(Name ="Country")]
+       
         public int CountryId  { get; set; }
-
+        
+        [Display(Name ="Country")]
         public IEnumerable<Country> Countries { get; set; }
         public bool? IsActive { get; set; }
+        public string Action
+        {
+            get
+            {
+               // return (Id != 0) ? "Update" : "Create";
+                Expression<Func<SupplierController, ActionResult>> update = (u => u.Update(this)); 
+                Expression<Func<SupplierController, ActionResult>> create = (u => u.Create(this));
+
+                var action = (Id != 0) ? update : create;
+                var actionName = (action.Body as MethodCallExpression).Method.Name;
+
+                return actionName;
+            }
+        }
     }
 }

@@ -8,13 +8,14 @@ namespace HitApp.Models
 {
     public class Supplier
     {
+        [Display(Name ="Id")]
         public int SupplierId { get; set; }
 
         [Required]
         [StringLength(80, MinimumLength = 3, ErrorMessage = "Adress must be 5-100 characters")]
         public string Name { get; set; }
 
-        [Required]
+        [Required]       
         public int KindsOfSupplierId { get; set; }
         public  KindsOfSupplier KindOfSupplier { get; set; }
 
