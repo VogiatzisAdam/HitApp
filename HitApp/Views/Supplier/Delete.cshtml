@@ -1,0 +1,15 @@
+﻿@model HitApp.ViewModels.SupplierFormViewModel
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>@Model.Heading</h2>
+
+<h3>Supplier : @Model.Id</h3>
+<h3>Supplier : @Model.Name</h3>
+@using (Html.BeginForm("Delete","Supplier"))
+ {
+    @Html.AntiForgeryToken()
+
+     <button id="delete" type="submit" class="btn btn-danger">Delete</button>
+ }

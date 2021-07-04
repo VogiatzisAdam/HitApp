@@ -51,8 +51,8 @@ namespace HitApp.ViewModels
         {
             get
             {
-               // return (Id != 0) ? "Update" : "Create";
-                Expression<Func<SupplierController, ActionResult>> update = (u => u.Update(this)); 
+                // return (Id != 0) ? "Update" : "Create";
+                Expression<Func<SupplierController, ActionResult>> update = (u => u.Update(this));
                 Expression<Func<SupplierController, ActionResult>> create = (u => u.Create(this));
 
                 var action = (Id != 0) ? update : create;
@@ -61,5 +61,6 @@ namespace HitApp.ViewModels
                 return actionName;
             }
         }
+       
     }
 }

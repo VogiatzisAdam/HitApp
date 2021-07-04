@@ -1,4 +1,5 @@
 ﻿using HitApp.Models;
+using HitApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -21,6 +22,11 @@ namespace HitApp.Controllers
             var suppliers = context.Suppliers
                 .Include(k => k.KindOfSupplier)
                 .Include(c => c.Country);
+            
+            //var viewModel = new HomeViewModel
+            //{
+            //    Suppliers=suppliers
+            //};
 
             return View(suppliers);
         }

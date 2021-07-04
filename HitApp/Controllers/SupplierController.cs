@@ -94,8 +94,7 @@ namespace HitApp.Controllers
             var name = viewModel.Name;
             var exists = context.Suppliers.Any(s => s.Name == name);
             if (exists)
-                //return View("The Supplier allready exists");
-                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
             if (!ModelState.IsValid)
             {
@@ -119,6 +118,46 @@ namespace HitApp.Controllers
             };
 
             context.Suppliers.Add(supplier);
+            context.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult Delete (int id)
+        {
+            var supplier = context.Suppliers
+                .Single(s => s.SupplierId == id);
+            var viewModel = new SupplierFormViewModel
+            {
+                Id = supplier.SupplierId,
+                Heading = "Remove a Supplier",
+                Name = supplier.Name,
+                KindsOfSuppliers = context.KindsOfSuppliers,
+                KindsOfSupplierId = supplier.KindsOfSupplierId,
+                TIN = supplier.TIN,
+                Address = supplier.Address,
+                PhoneNumber = supplier.PhoneNumber,
+                Email = supplier.Email,
+                Countries = context.Countries,
+                CountryId = supplier.CountryId,
+                IsActive = supplier.IsActive
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteSupplier (int id)
+        {
+            var supplier = context.Suppliers
+                .SingleOrDefault(s => s.SupplierId == id);
+
+            if (supplier == null)
+                return HttpNotFound();
+
+            context.Suppliers.Remove(supplier);
             context.SaveChanges();
 
             return RedirectToAction("Index", "Home");

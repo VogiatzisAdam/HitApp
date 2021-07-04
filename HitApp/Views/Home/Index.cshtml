@@ -5,6 +5,14 @@
 
 <h3><span>Suppliers</span></h3>
 
+@*@using (Html.BeginForm("Search", "Supplier"))
+ {
+    <div class="form-group">
+        @Html.TextBoxFor(s => s.SearchTerm, new {@class="form"})
+    </div>
+ }*@
+
+
 <table class="table">
     <thead>
         <tr>
@@ -32,7 +40,7 @@
                 <td>@Html.DisplayFor(c=>supplier.Country.Name)</td>
                 <td>
                     @Html.ActionLink("Edit","Edit","Supplier",new { id=supplier.SupplierId}, new { @class="btn btn-primary"})
-                    @Html.ActionLink("Delete","Home", new { id = supplier.SupplierId }, new { @class="btn btn-danger"})
+                    @Html.ActionLink("Delete","Delete","Supplier", new { id = supplier.SupplierId }, new { @class="btn btn-danger"})
                 </td>
             </tr>
             }
