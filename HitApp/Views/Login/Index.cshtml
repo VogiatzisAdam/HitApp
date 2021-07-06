@@ -1,0 +1,64 @@
+﻿@model HitApp.Models.User
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div id="login-div">
+    @using (Html.BeginForm("Authorize", "Login"))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            @Html.LabelFor(u => u.UserName)
+            @Html.TextBoxFor(u => u.UserName, new { @class = "form-control", autofocus = "autofocus" })
+            @Html.ValidationMessageFor(u => u.UserName)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(p => p.PassWord)
+            @Html.PasswordFor(p => p.PassWord, new { @class = "form-control" })
+            @Html.ValidationMessageFor(p => p.PassWord)
+        </div>
+        <label class="field-validation-error">@Html.DisplayFor(u => u.LoginErrorMessage)</label>
+        <button id="login" type="submit" class="btn btn-primary">Login</button>
+        <button id="login" type="reset" class="btn btn-primary">Clear</button>
+        @*<table>
+            <tr>
+                <td></td>
+                <td>Application</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(u => u.UserName)</td>
+                <td>@Html.EditorFor(u => u.UserName, new { @class = "form-control", autofocus = "autofocus" })</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>@Html.ValidationMessageFor(u => u.UserName)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(u => u.PassWord)</td>
+                <td>@Html.EditorFor(u => u.PassWord, new { @class = "form-control" })</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>@Html.ValidationMessageFor(u => u.PassWord)</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label class="field-validation-error">@Html.DisplayFor(u => u.LoginErrorMessage)</label>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" name="name" value="Login" />
+                    <input type="reset" name="name" value="clear" />
+                </td>
+            </tr>
+        </table>*@
+    }
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

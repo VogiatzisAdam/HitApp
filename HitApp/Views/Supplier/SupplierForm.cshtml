@@ -3,26 +3,37 @@
     ViewBag.Title = Model.Heading;
 }
 
+@if (Session["userId"] == null)
+{
+    Response.Redirect("~/Login/Index");
+}
+<div>
+    <a href="@Url.Action("LogOut","Login")">Log Out</a>
+</div>
+
+
 <h2>@Model.Heading</h2>
+
+
 @using (Html.BeginForm(Model.Action, "Supplier"))
 {
     @Html.AntiForgeryToken()
-    @Html.HiddenFor(m => m.Id)
-    <div class="form-group">
-        @Html.LabelFor(n => n.Name)
-        @Html.TextBoxFor(n => n.Name, new { @class = "form-control", autofocus = "autofocus" })
-        @Html.ValidationMessageFor(n => n.Name)
-    </div>
+    @Html.HiddenFor(m => m.Id)  
+        <div class="form-group">
+            @Html.LabelFor(n => n.Name)
+            @Html.TextBoxFor(n => n.Name, new { @class = "form-control", autofocus = "autofocus", Model.IsActive })
+            @Html.ValidationMessageFor(n => n.Name)
+        </div>
     <div class="form-group">
         @Html.LabelFor(k => k.KindsOfSuppliers)
         @Html.DropDownListFor(k => k.KindsOfSupplierId, new SelectList(Model.KindsOfSuppliers, "KindsOfSupplierId", "Heading"), "---Select---", new { @class = "form-control" })
         @Html.ValidationMessageFor(k => k.KindsOfSupplierId)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(t => t.TIN)
-        @Html.TextBoxFor(t => t.TIN, new { @class = "form-control" })
-        @Html.ValidationMessageFor(t => t.TIN)
-    </div>
+    </div>    
+        <div class="form-group">
+            @Html.LabelFor(t => t.TIN)
+            @Html.TextBoxFor(t => t.TIN, new { @class = "form-control" })
+            @Html.ValidationMessageFor(t => t.TIN)
+        </div>
     <div class="form-group">
         @Html.LabelFor(a => a.Address)
         @Html.TextBoxFor(a => a.Address, new { @class = "form-control" })

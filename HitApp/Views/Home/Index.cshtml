@@ -3,46 +3,54 @@
     ViewBag.Title = "Home Page";
 }
 
+@if (Session["userId"] == null)
+{
+    Response.Redirect("~/Login/Index");
+}
+<div>
+    <a href="@Url.Action("LogOut","Login")"><span>Log Out</span></a>
+</div>
+
 <h3><span>Suppliers</span></h3>
 
 @*@using (Html.BeginForm("Search", "Supplier"))
- {
-    <div class="form-group">
-        @Html.TextBoxFor(s => s.SearchTerm, new {@class="form"})
-    </div>
- }*@
+    {
+       <div class="form-group">
+           @Html.TextBoxFor(s => s.SearchTerm, new {@class="form"})
+       </div>
+    }*@
 
 
 <table class="table">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(s=>s.SupplierId)</th>
-            <th>@Html.DisplayNameFor(n=>n.Name)</th>
-            <th>@Html.DisplayNameFor(k=>k.KindOfSupplier.Heading)</th>
-            <th>@Html.DisplayNameFor(t=>t.TIN)</th>
-            <th>@Html.DisplayNameFor(a=>a.Address)</th>
-            <th>@Html.DisplayNameFor(p=>p.PhoneNumber)</th>
-            <th>@Html.DisplayNameFor(e=>e.Email)</th>
-            <th>@Html.DisplayNameFor(c=>c.Country.Name)</th>
+            <th>@Html.ActionLink("Id", "IndexAdmin", new { sortOrder = ViewBag.IdSortParam })</th>
+            <th>@Html.ActionLink("Name", "IndexAdmin", new { sortOrder = ViewBag.NameSortParam })</th>
+            <th>@Html.ActionLink("Suppliers Role", "IndexAdmin", new { sortOrder = ViewBag.SuppliersRoleSortParam })</th>
+            <th>@Html.ActionLink("TIN", "IndexAdmin", new { sortOrder = ViewBag.TinSortParam })</th>
+            <th>@Html.ActionLink("Address", "IndexAdmin", new { sortOrder = ViewBag.AddressSortParam })</th>
+            <th>@Html.ActionLink("Phone Number", "IndexAdmin", new { sortOrder = ViewBag.PhonNumberSortParam })</th>
+            <th>@Html.ActionLink("Email", "IndexAdmin", new { sortOrder = ViewBag.EmailSortParam })</th>
+            <th>@Html.ActionLink("Country", "IndexAdmin", new { sortOrder = ViewBag.CountrySortParam })</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var supplier in Model)
-            {
+        {
             <tr>
-                <td>@Html.DisplayFor(s=>supplier.SupplierId)</td>
-                <td>@Html.DisplayFor(n=>supplier.Name)</td>
-                <td>@Html.DisplayFor(k=>supplier.KindOfSupplier.Heading)</td>
-                <td>@Html.DisplayFor(t=>supplier.TIN)</td>
-                <td>@Html.DisplayFor(a=>supplier.Address)</td>
-                <td>@Html.DisplayFor(p=>supplier.PhoneNumber)</td>
-                <td>@Html.DisplayFor(e=>supplier.Email)</td>
-                <td>@Html.DisplayFor(c=>supplier.Country.Name)</td>
+                <td>@Html.DisplayFor(s => supplier.SupplierId)</td>
+                <td>@Html.DisplayFor(n => supplier.Name)</td>
+                <td>@Html.DisplayFor(k => supplier.KindOfSupplier.Heading)</td>
+                <td>@Html.DisplayFor(t => supplier.TIN)</td>
+                <td>@Html.DisplayFor(a => supplier.Address)</td>
+                <td>@Html.DisplayFor(p => supplier.PhoneNumber)</td>
+                <td>@Html.DisplayFor(e => supplier.Email)</td>
+                <td>@Html.DisplayFor(c => supplier.Country.Name)</td>
                 <td>
-                    @Html.ActionLink("Edit","Edit","Supplier",new { id=supplier.SupplierId}, new { @class="btn btn-primary"})
-                    @Html.ActionLink("Delete","Delete","Supplier", new { id = supplier.SupplierId }, new { @class="btn btn-danger"})
+                    @Html.ActionLink("Edit", "Edit", "Supplier", new { id = supplier.SupplierId }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Delete", "Delete", "Supplier", new { id = supplier.SupplierId }, new { @class = "btn btn-danger" })
                 </td>
             </tr>
-            }
+        }
     </tbody>
 </table>

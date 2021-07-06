@@ -19,6 +19,28 @@ namespace HitApp.ViewModels
                 }
             }
             return new ValidationResult("TIL must contain 9 numbers");
+
         }
+
+        //public static bool ValidateTIN(string tin)
+        //{
+        //    int _numTIN = 0;
+        //    if (tin.Length != 9 || !int.TryParse(tin, out _numTIN))
+        //        return false;
+        //    else
+        //    {
+        //        double sum = 0;
+        //        int iter = tin.Length - 1;
+        //        tin.ToCharArray().Take(iter).ToList().ForEach(c =>
+        //        {
+        //            sum += double.Parse(c.ToString()) * Math.Pow(2, iter);
+        //            iter--;
+        //        });
+        //        if (sum % 11 == double.Parse(tin.Substring(8)) || double.Parse(tin.Substring(8)) == 0)
+        //            return true;
+        //        else
+        //            return false;
+        //    }
+        //}
     }
 }

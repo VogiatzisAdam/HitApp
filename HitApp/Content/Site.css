@@ -75,3 +75,10 @@ h3, .h3 {
     font-weight: bold;
     color: #7d7777;
 }
+#login-div {
+    position: absolute;
+    left: 40%;
+    top: 40%;
+    border: 1px solid #ccc;
+    padding: 10px 10px;
+}

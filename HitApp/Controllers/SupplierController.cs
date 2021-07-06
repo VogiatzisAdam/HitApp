@@ -28,7 +28,7 @@ namespace HitApp.Controllers
             {
                 Countries = countries,
                 KindsOfSuppliers = kindsOfSuppliers,
-                Heading= "Add a Supplier"
+                Heading = "Add a Supplier"
             };
 
             return View("SupplierForm",viewModel);
@@ -38,23 +38,24 @@ namespace HitApp.Controllers
         {
             var supplier = context.Suppliers
                 .Single(s => s.SupplierId ==id);
+
             var viewModel = new SupplierFormViewModel
             {
                 Id = supplier.SupplierId,
                 Heading = "Edit a Supplier",
                 Name = supplier.Name,
-                KindsOfSuppliers=context.KindsOfSuppliers,
-                KindsOfSupplierId=supplier.KindsOfSupplierId,
+                KindsOfSuppliers = context.KindsOfSuppliers,
+                KindsOfSupplierId = supplier.KindsOfSupplierId,
                 TIN = supplier.TIN,
                 Address = supplier.Address,
                 PhoneNumber = supplier.PhoneNumber,
                 Email = supplier.Email,
-                Countries=context.Countries,
+                Countries = context.Countries,
                 CountryId = supplier.CountryId,
                 IsActive = supplier.IsActive
             };
-                             
-            return View("SupplierForm",viewModel);
+
+            return View("SupplierForm", viewModel);
         }
 
         [HttpPost]
@@ -63,6 +64,7 @@ namespace HitApp.Controllers
         {
             if (!ModelState.IsValid)
             {
+
                 viewModel.Countries = context.Countries.ToList();
                 viewModel.KindsOfSuppliers = context.KindsOfSuppliers.ToList();
 
@@ -71,17 +73,12 @@ namespace HitApp.Controllers
 
             var supplier = context.Suppliers
                 .Single(s => s.SupplierId == viewModel.Id);
-            supplier.Name = viewModel.Name;
-            supplier.KindsOfSupplierId = viewModel.KindsOfSupplierId;
-            supplier.TIN = viewModel.TIN;
-            supplier.Address = viewModel.Address;
-            supplier.PhoneNumber = viewModel.PhoneNumber;
-            supplier.Email = viewModel.Email;
-            supplier.CountryId = viewModel.CountryId;
-            supplier.IsActive = viewModel.IsActive;
+            
+            supplier.UpdateSupplier(viewModel.Name, viewModel.KindsOfSupplierId, viewModel.TIN, viewModel.Address, viewModel.PhoneNumber, viewModel.Email, viewModel.CountryId, viewModel.IsActive);
 
             context.SaveChanges();
-
+           
+            
             return RedirectToAction("Index", "Home");
         }
 
@@ -103,19 +100,9 @@ namespace HitApp.Controllers
 
                 return View("SupplierForm", viewModel);
             }
-                
 
-            var supplier = new Supplier
-            {
-                Name=viewModel.Name,
-                KindsOfSupplierId=viewModel.KindsOfSupplierId,
-                TIN=viewModel.TIN,
-                Address=viewModel.Address,
-                PhoneNumber=viewModel.PhoneNumber,
-                Email=viewModel.Email,
-                CountryId=viewModel.CountryId,
-                IsActive =viewModel.IsActive
-            };
+
+            var supplier = new Supplier(viewModel.Name, viewModel.KindsOfSupplierId, viewModel.TIN, viewModel.Address, viewModel.PhoneNumber, viewModel.Email, viewModel.CountryId, viewModel.IsActive);
 
             context.Suppliers.Add(supplier);
             context.SaveChanges();
