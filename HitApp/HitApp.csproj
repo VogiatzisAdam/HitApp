@@ -174,22 +174,6 @@
     <Compile Include="Migrations\202107010926246_TestAgainLookup.designer.cs">
       <DependentUpon>202107010926246_TestAgainLookup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202107011111225_TestAgainLookupAndAgain.cs" />
-    <Compile Include="Migrations\202107011111225_TestAgainLookupAndAgain.designer.cs">
-      <DependentUpon>202107011111225_TestAgainLookupAndAgain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107011136280_TestAgainLookupAndAgainandAgain.cs" />
-    <Compile Include="Migrations\202107011136280_TestAgainLookupAndAgainandAgain.designer.cs">
-      <DependentUpon>202107011136280_TestAgainLookupAndAgainandAgain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107011213233_TestAgainLookupAndAgainandAgainAgain.cs" />
-    <Compile Include="Migrations\202107011213233_TestAgainLookupAndAgainandAgainAgain.designer.cs">
-      <DependentUpon>202107011213233_TestAgainLookupAndAgainandAgainAgain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107011904167_TestAnnotations.cs" />
-    <Compile Include="Migrations\202107011904167_TestAnnotations.designer.cs">
-      <DependentUpon>202107011904167_TestAnnotations.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202107051523369_AddUserLogin.cs" />
     <Compile Include="Migrations\202107051523369_AddUserLogin.designer.cs">
       <DependentUpon>202107051523369_AddUserLogin.cs</DependentUpon>
@@ -198,6 +182,10 @@
     <Compile Include="Migrations\202107051526575_PopulateUsers.designer.cs">
       <DependentUpon>202107051526575_PopulateUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107061955445_finaltest.cs" />
+    <Compile Include="Migrations\202107061955445_finaltest.designer.cs">
+      <DependentUpon>202107061955445_finaltest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Country.cs" />
@@ -205,6 +193,10 @@
     <Compile Include="Models\Supplier.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CountriesRepository.cs" />
+    <Compile Include="Repositories\KindsOfSuppliersRepository.cs" />
+    <Compile Include="Repositories\SupplierRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="ViewModels\SupplierFormViewModel.cs" />
     <Compile Include="ViewModels\PhoneValidation.cs" />
     <Compile Include="ViewModels\TinValidation.cs" />
@@ -243,8 +235,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Supplier\SupplierForm.cshtml" />
     <Content Include="Views\Supplier\Delete.cshtml" />
@@ -272,23 +262,14 @@
     <EmbeddedResource Include="Migrations\202107010926246_TestAgainLookup.resx">
       <DependentUpon>202107010926246_TestAgainLookup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107011111225_TestAgainLookupAndAgain.resx">
-      <DependentUpon>202107011111225_TestAgainLookupAndAgain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107011136280_TestAgainLookupAndAgainandAgain.resx">
-      <DependentUpon>202107011136280_TestAgainLookupAndAgainandAgain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107011213233_TestAgainLookupAndAgainandAgainAgain.resx">
-      <DependentUpon>202107011213233_TestAgainLookupAndAgainandAgainAgain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107011904167_TestAnnotations.resx">
-      <DependentUpon>202107011904167_TestAnnotations.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107051523369_AddUserLogin.resx">
       <DependentUpon>202107051523369_AddUserLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107051526575_PopulateUsers.resx">
       <DependentUpon>202107051526575_PopulateUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107061955445_finaltest.resx">
+      <DependentUpon>202107061955445_finaltest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

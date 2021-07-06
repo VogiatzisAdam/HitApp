@@ -23,6 +23,12 @@ namespace HitApp.Models
 
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Supplier>()
+
+                .Property(c => c.CountryId)
+
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+
 
             modelBuilder.Entity<Country>()
 

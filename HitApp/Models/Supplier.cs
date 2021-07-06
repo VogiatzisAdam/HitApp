@@ -63,5 +63,6 @@ namespace HitApp.Models
             CountryId = countryId;
             IsActive = isActive;
         }
+     
     }
 }

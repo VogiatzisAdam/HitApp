@@ -1,4 +1,5 @@
 ﻿using HitApp.Models;
+using HitApp.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,12 @@ namespace HitApp.Controllers
     public class LoginController : Controller
     {
         private readonly ApplicationDbContext context;
+        private readonly UserRepository userRepository;
 
         public LoginController()
         {
             context = new ApplicationDbContext();
+            userRepository = new UserRepository(context);
         }
 
         // GET: Login
@@ -21,14 +24,12 @@ namespace HitApp.Controllers
         {
             return View();
         }
-
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Authorize(User user)
         {
-            var userdetails = context.Users.Where(u => u.UserName == user.UserName && u.PassWord == user.PassWord).FirstOrDefault();
-
-            if (userdetails == null)
+            if (userRepository.GetUserDetails(user.UserName, user.PassWord) == null)
             {
                 user.LoginErrorMessage = "Wrong username or password";
 
@@ -36,8 +37,9 @@ namespace HitApp.Controllers
             }
             else
             {
-                Session["userId"] = userdetails.UserId;
-                Session["userName"] = userdetails.UserName;
+                Session["userId"] = user.UserId;
+                Session["userName"] = user.UserName;
+                
                 return RedirectToAction("Index", "Home");
             }
         }

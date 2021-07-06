@@ -16,5 +16,6 @@ namespace HitApp.Models
         [StringLength(100, ErrorMessage = "More than 100 characters", MinimumLength = 2)]
         [Display(Name ="Country")]
         public string Name { get; set; }
+
     }
 }

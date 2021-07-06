@@ -54,7 +54,6 @@ namespace HitApp.ViewModels
         {
             get
             {
-                // return (Id != 0) ? "Update" : "Create";
                 Expression<Func<SupplierController, ActionResult>> update = (u => u.Update(this));
                 Expression<Func<SupplierController, ActionResult>> create = (u => u.Create(this));
 
@@ -64,35 +63,6 @@ namespace HitApp.ViewModels
                 return actionName;
             }
         }
-        //protected SupplierFormViewModel(){ }
-        //public SupplierFormViewModel(IEnumerable<Country>countries,IEnumerable<KindsOfSupplier> kindsOfSuppliers, string heading)
-        //{
-        //    this.Countries = countries;
-        //    this.KindsOfSuppliers = kindsOfSuppliers;
-        //    this.Heading = heading;
-        //}
-        //public SupplierFormViewModel(int id,string heading,string name,IEnumerable<KindsOfSupplier> kindsOfSuppliers,int kindsOfSupplierId,string tin,string address,string phoneNumber,string email,IEnumerable<Country> countries,int countryId,bool? isActive)
-        //{
-        //    this.Id = id;
-        //    this.Heading = heading;
-        //    this.Name = name;
-        //    this.KindsOfSuppliers = kindsOfSuppliers;
-        //    this.KindsOfSupplierId = kindsOfSupplierId;
-        //    this.TIN = tin;
-        //    this.Address = address;
-        //    this.PhoneNumber = phoneNumber;
-        //    this.Email = email;
-        //    this.Countries = countries;
-        //    this.CountryId = countryId;
-        //    this.IsActive = isActive;
-        //}
-        //public void GetCountries()
-        //{
-        //    this.Countries = new Collection<Country>();
-        //}
-        //public void GetKindsOfSuppliers()
-        //{
-        //    this.KindsOfSuppliers = new Collection<KindsOfSupplier>();
-        //}
+
     }
 }

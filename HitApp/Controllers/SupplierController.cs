@@ -1,4 +1,5 @@
 ﻿using HitApp.Models;
+using HitApp.Repositories;
 using HitApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -13,18 +14,17 @@ namespace HitApp.Controllers
     public class SupplierController : Controller
     {
         private readonly ApplicationDbContext context;
-
         public SupplierController()
         {
             context = new ApplicationDbContext();
         }
-
-        // GET: Supplier
+        
         public ActionResult Create()
         {
+            //countries, kindsOfSuppliers, "Add a Supplier"
             var countries = context.Countries.ToList();
-            var kindsOfSuppliers=context.KindsOfSuppliers.ToList();
-            var viewModel = new SupplierFormViewModel
+            var kindsOfSuppliers = context.KindsOfSuppliers.ToList();
+            var viewModel = new SupplierFormViewModel()
             {
                 Countries = countries,
                 KindsOfSuppliers = kindsOfSuppliers,
@@ -37,9 +37,9 @@ namespace HitApp.Controllers
         public ActionResult Edit(int id)
         {
             var supplier = context.Suppliers
-                .Single(s => s.SupplierId ==id);
-
-            var viewModel = new SupplierFormViewModel
+                .Single(s => s.SupplierId == id);
+            //supplier.SupplierId,"Edit a Supplier",supplier.Name, context.KindsOfSuppliers,supplier.KindsOfSupplierId,supplier.TIN,supplier.Address,supplier.PhoneNumber,supplier.Email, context.Countries,supplier.CountryId,supplier.IsActive
+            var viewModel = new SupplierFormViewModel()
             {
                 Id = supplier.SupplierId,
                 Heading = "Edit a Supplier",
@@ -57,14 +57,12 @@ namespace HitApp.Controllers
 
             return View("SupplierForm", viewModel);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Update(SupplierFormViewModel viewModel)
         {
             if (!ModelState.IsValid)
             {
-
                 viewModel.Countries = context.Countries.ToList();
                 viewModel.KindsOfSuppliers = context.KindsOfSuppliers.ToList();
 
@@ -81,8 +79,6 @@ namespace HitApp.Controllers
             
             return RedirectToAction("Index", "Home");
         }
-
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -101,7 +97,6 @@ namespace HitApp.Controllers
                 return View("SupplierForm", viewModel);
             }
 
-
             var supplier = new Supplier(viewModel.Name, viewModel.KindsOfSupplierId, viewModel.TIN, viewModel.Address, viewModel.PhoneNumber, viewModel.Email, viewModel.CountryId, viewModel.IsActive);
 
             context.Suppliers.Add(supplier);
@@ -109,12 +104,13 @@ namespace HitApp.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-
         public ActionResult Delete (int id)
         {
             var supplier = context.Suppliers
                 .Single(s => s.SupplierId == id);
-            var viewModel = new SupplierFormViewModel
+
+            //supplier.SupplierId, "Edit a Supplier", supplier.Name, context.KindsOfSuppliers, supplier.KindsOfSupplierId, supplier.TIN, supplier.Address, supplier.PhoneNumber, supplier.Email, context.Countries, supplier.CountryId, supplier.IsActive
+            var viewModel = new SupplierFormViewModel()
             {
                 Id = supplier.SupplierId,
                 Heading = "Remove a Supplier",
@@ -129,7 +125,6 @@ namespace HitApp.Controllers
                 CountryId = supplier.CountryId,
                 IsActive = supplier.IsActive
             };
-
             return View(viewModel);
         }
 

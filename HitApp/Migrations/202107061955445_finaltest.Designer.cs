@@ -7,13 +7,13 @@ namespace HitApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class TestAgainLookupAndAgainandAgainAgain : IMigrationMetadata
+    public sealed partial class finaltest : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(TestAgainLookupAndAgainandAgainAgain));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(finaltest));
         
         string IMigrationMetadata.Id
         {
-            get { return "202107011213233_TestAgainLookupAndAgainandAgainAgain"; }
+            get { return "202107061955445_finaltest"; }
         }
         
         string IMigrationMetadata.Source
